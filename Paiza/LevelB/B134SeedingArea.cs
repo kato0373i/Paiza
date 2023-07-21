@@ -56,13 +56,16 @@ namespace Paiza.LevelB
             {
                 for (int x = 0; x < H; x++)
                 {
-                    // 外周判定
-                    var isOuterY = (y == 0 && y == H - 1);
-                    var isOuterX = (x == 0 && x == H - 1);
+                    // 外周のみ種まき
+                    var isInnerY = (y != 0 && y != H - 1);
+                    var isInnerX = (x != 0 && x != H - 1);
 
-                    if (isInnerY || isInnerX)
+                    if (isInnerY)
                     {
-                        continue;
+                        if (isInnerX)
+                        {
+                            continue;
+                        }
                     }
 
                     // 種が蒔かれる座標
