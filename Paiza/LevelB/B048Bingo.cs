@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Paiza
+namespace Paiza.LevelB
 {
     public class B048Bingo
     {

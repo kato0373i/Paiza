@@ -2,10 +2,29 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Paiza
+namespace Paiza.LevelB
 {
     public class B035Jog
     {
+        #region 説明
+
+
+        // B035:ジョギングランキング
+
+        // あなたは健康になるために、部員数 N 人のジョギング部に入りました。
+        // ジョギング部では、個々人が好きな日にジョギングをして、その距離を記録していきます。
+        // また、部員のやる気向上のため、毎月ジョギングした距離の長い上位 T 人が発表されます。
+        // 
+        // 今月新しく上位 T 人に入ってきた人には "new"、 先月より順位が上がった人には "up"、 下がった人には "down"、 順位が変わらない人には "same"、 というラベルが付けられます。
+        // 
+        // 先月の走った距離は引き継がれません。 N 人分の先月の走った距離と今月のジョギングの記録が M 個与えられるので、今月の上位 T 人をラベルとともに出力してください。
+        // 
+        // 同じ人が複数回ジョギングした場合、順位付けにはその人が今月走った距離の合計を使います。 走った距離が同じときは、辞書順に並べたときに早い名前の方の部員を上位とします。
+
+        // https://paiza.jp/career/challenges/148/retry
+
+        #endregion
+
         public static void JogMain(string[] args)
         {
             string[] inputs = Console.ReadLine().Split(' ');

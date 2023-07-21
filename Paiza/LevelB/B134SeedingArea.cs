@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Paiza
+namespace Paiza.LevelB
 {
     public class B134SeedingArea
     {
