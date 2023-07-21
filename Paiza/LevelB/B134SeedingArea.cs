@@ -37,12 +37,10 @@ namespace Paiza.LevelB
                 CalculateSeedingArea(H, axisX, axisY, ref area);
             }
 
-            // 結果出力
-            
-            string result = string.Empty;
-
+            // 結果出力            
             for (int n = 0; n < N; n++)
             {
+                // 一行毎に抽出
                 int[] extractedColumn = Enumerable.Range(0, M).Select(row => area[n, row]).ToArray();
 
                 Console.WriteLine(string.Join(" ", extractedColumn));
@@ -58,32 +56,29 @@ namespace Paiza.LevelB
             {
                 for (int x = 0; x < H; x++)
                 {
-                    // 外周以外の場合
-                    if (y != 0 && y != H - 1)
+                    // 外周判定
+                    var isOuterY = (y == 0 && y == H - 1);
+                    var isOuterX = (x == 0 && x == H - 1);
+
+                    if (!isOuterY || !isOuterX)
                     {
-                        if (x != 0 && x != H - 1)
-                        {
-                            continue;
-                        }
+                        continue;
                     }
 
+                    // 種が蒔かれる座標
                     int areaX = axisX - r + x;
                     int areaY = axisY - r + y;
 
                     // 畑の範囲外も有り得るため、回避
-                    if(areaX < 0 || areaY < 0)
+                    var IsOutofRange = (areaX < 0 || areaY < 0 || areaX > area.GetLength(0) - 1 || areaY > area.GetLength(1) - 1);
+
+                    if(IsOutofRange)
                     {
                         continue;
-                    }
+                    }                    
 
-                    if (areaX > area.GetLength(0) - 1 || areaY > area.GetLength(1) - 1)
-                    {
-                        continue;
-                    }
-
-                    // 種まき
+                    // 種まき加算
                     area[areaX, areaY] += 1;
-
                 }
             }
         }
