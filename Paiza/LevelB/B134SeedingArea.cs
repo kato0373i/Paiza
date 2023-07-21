@@ -60,7 +60,7 @@ namespace Paiza.LevelB
                     var isOuterY = (y == 0 && y == H - 1);
                     var isOuterX = (x == 0 && x == H - 1);
 
-                    if (!isOuterY || !isOuterX)
+                    if (isInnerY || isInnerX)
                     {
                         continue;
                     }
